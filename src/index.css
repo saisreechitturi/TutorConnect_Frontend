@@ -1,0 +1,139 @@
+/* 
+ * TutorConnect Main Stylesheet
+ * 
+ * TEAM MEMBERS:
+ * - Cherukuri, Adarsh - 1002214118
+ * - Cheni, Chandan - 1002241336
+ * - Kannan Chellapandian, Maatheswaran - 1002249217
+ * - Celoth, Sai Prathyusha - 1002247426
+ * - Chitturi, Sai Sree - 1002193319
+ * 
+ * FONT FAMILY:
+ * - System font stack (default): -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif
+ * - Provides native look and feel across different operating systems
+ * 
+ * COLOR PALETTE:
+ * Primary Colors (Blue):
+ * - primary-50: #eff6ff (Light blue - backgrounds)
+ * - primary-100: #dbeafe (Lighter blue - hover states)
+ * - primary-500: #3b82f6 (Medium blue - focus rings)
+ * - primary-600: #2563eb (Main brand blue - primary buttons)
+ * - primary-700: #1d4ed8 (Dark blue - button hover states)
+ * 
+ * Neutral Colors (Gray):
+ * - gray-200: #e5e7eb (Light gray - secondary buttons)
+ * - gray-300: #d1d5db (Medium gray - borders)
+ * - gray-500: #6b7280 (Dark gray - hints/secondary text)
+ * - gray-800: #1f2937 (Very dark gray - text)
+ * 
+ * Status Colors:
+ * - Red-300/500/600: #fca5a5, #ef4444, #dc2626 (Error states)
+ * - Green-300/500/600: #86efac, #22c55e, #16a34a (Success states)
+ * 
+ * SPACING:
+ * - px-3: 0.75rem (12px) - Horizontal input padding
+ * - px-4: 1rem (16px) - Horizontal button padding
+ * - py-2: 0.5rem (8px) - Vertical padding
+ * - mt-1: 0.25rem (4px) - Small top margin
+ * - mt-2: 0.5rem (8px) - Medium top margin
+ * 
+ * BORDER RADIUS:
+ * - rounded-md: 0.375rem (6px) - Medium rounded corners
+ * 
+ * TRANSITIONS:
+ * - transition-colors: 150ms ease-in-out (smooth color transitions)
+ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==================== BUTTON STYLES ==================== */
+
+/* Primary Button
+ * Background: Blue #2563eb (primary-600)
+ * Text: White #ffffff
+ * Hover: Darker blue #1d4ed8 (primary-700)
+ * Focus: Blue ring #3b82f6 (primary-500) with 2px width
+ * Padding: 16px horizontal, 8px vertical
+ * Border radius: 6px
+ * Transition: Color changes in 150ms
+ */
+.btn-primary {
+    @apply bg-primary-600 text-white px-4 py-2 rounded-md hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 transition-colors;
+}
+
+/* Secondary Button
+ * Background: Light gray #e5e7eb (gray-200)
+ * Text: Dark gray #1f2937 (gray-800)
+ * Hover: Medium gray #d1d5db (gray-300)
+ * Focus: Gray ring #6b7280 (gray-500) with 2px width
+ * Padding: 16px horizontal, 8px vertical
+ * Border radius: 6px
+ * Transition: Color changes in 150ms
+ */
+.btn-secondary {
+    @apply bg-gray-200 text-gray-800 px-4 py-2 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-colors;
+}
+
+/* ==================== INPUT FIELD STYLES ==================== */
+
+/* Default Input Field
+ * Width: 100% (full width)
+ * Padding: 12px horizontal, 8px vertical
+ * Border: 1px solid #d1d5db (gray-300)
+ * Border radius: 6px
+ * Focus: Blue ring #3b82f6 (primary-500) with 2px width
+ * Focus border: Blue #3b82f6 (primary-500)
+ * Transition: Color changes in 150ms
+ */
+.input-field {
+    @apply w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors;
+}
+
+/* Error State Input
+ * Border: Light red #fca5a5 (red-300)
+ * Focus ring: Red #ef4444 (red-500)
+ * Focus border: Red #ef4444 (red-500)
+ */
+.input-field.error {
+    @apply border-red-300 focus:ring-red-500 focus:border-red-500;
+}
+
+/* Success State Input
+ * Border: Light green #86efac (green-300)
+ * Focus ring: Green #22c55e (green-500)
+ * Focus border: Green #22c55e (green-500)
+ */
+.input-field.success {
+    @apply border-green-300 focus:ring-green-500 focus:border-green-500;
+}
+
+/* ==================== MESSAGE STYLES ==================== */
+
+/* Error Message
+ * Font size: 0.875rem (14px - small)
+ * Color: Red #dc2626 (red-600)
+ * Top margin: 8px
+ */
+.error-message {
+    @apply mt-2 text-sm text-red-600;
+}
+
+/* Success Message
+ * Font size: 0.875rem (14px - small)
+ * Color: Green #16a34a (green-600)
+ * Top margin: 8px
+ */
+.success-message {
+    @apply mt-2 text-sm text-green-600;
+}
+
+/* Validation Hint
+ * Font size: 0.75rem (12px - extra small)
+ * Color: Medium gray #6b7280 (gray-500)
+ * Top margin: 4px
+ */
+.validation-hint {
+    @apply mt-1 text-xs text-gray-500;
+}
