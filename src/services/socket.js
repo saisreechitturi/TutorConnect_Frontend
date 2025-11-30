@@ -3,7 +3,7 @@ import { io } from 'socket.io-client';
 let socket;
 
 function getApiBase() {
-    const api = process.env.REACT_APP_API_URL || 'https://tutorconnect-render.onrender.com/api';
+    const api = process.env.REACT_APP_API_URL || 'https://tutorconnect-backend-render.onrender.com/api';
     // strip trailing /api if present
     return api.replace(/\/api\/?$/, '');
 }

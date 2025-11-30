@@ -1,5 +1,5 @@
 // API Configuration and Base Client
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://tutorconnect-render.onrender.com/api';
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://tutorconnect-backend-render.onrender.com/api';
 
 class ApiClient {
     constructor() {

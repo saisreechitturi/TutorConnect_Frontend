@@ -3,7 +3,7 @@ import axios from 'axios';
 // Create axios instance with base configuration
 const API_BASE_URL = process.env.NODE_ENV === 'production'
     ? process.env.REACT_APP_API_URL || 'https://your-backend-url.onrender.com'
-    : 'https://tutorconnect-render.onrender.com';
+    : 'https://tutorconnect-backend-render.onrender.com';
 
 const api = axios.create({
     baseURL: `${API_BASE_URL}/api`,
