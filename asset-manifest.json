@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/TutorConnect_Frontend/static/css/main.9e6f60d6.css",
+    "main.js": "/TutorConnect_Frontend/static/js/main.42589ef6.js",
+    "index.html": "/TutorConnect_Frontend/index.html",
+    "main.9e6f60d6.css.map": "/TutorConnect_Frontend/static/css/main.9e6f60d6.css.map",
+    "main.42589ef6.js.map": "/TutorConnect_Frontend/static/js/main.42589ef6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9e6f60d6.css",
+    "static/js/main.42589ef6.js"
+  ]
+}
