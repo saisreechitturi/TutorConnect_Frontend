@@ -101,7 +101,13 @@ const TutorProfileSetup = () => {
                     setSubjects(getFallbackSubjects());
                 }
             } else {
-                const errorText = await response.text();
+                let errorText;
+                try {
+                    const errorData = await response.json();
+                    errorText = errorData.message || response.statusText;
+                } catch {
+                    errorText = response.statusText || `HTTP ${response.status}`;
+                }
                 console.error('Failed to fetch subjects:', {
                     status: response.status,
                     statusText: response.statusText,
@@ -343,15 +349,15 @@ const TutorProfileSetup = () => {
                     const errorData = await profileResponse.json();
                     errorText = errorData.message || `HTTP ${profileResponse.status}`;
                     console.error('❌ Profile update failed - JSON response:', errorData);
-                } catch {
-                    errorText = await profileResponse.text();
-                    console.error('❌ Profile update failed - Text response:', errorText);
+                } catch (jsonError) {
+                    // If JSON parsing fails, clone the response first or use statusText
+                    errorText = profileResponse.statusText || `HTTP ${profileResponse.status}`;
+                    console.error('❌ Profile update failed - Could not parse response:', jsonError);
                 }
 
                 console.error('❌ Profile update failed:', {
                     status: profileResponse.status,
                     statusText: profileResponse.statusText,
-                    headers: Object.fromEntries(profileResponse.headers.entries()),
                     error: errorText
                 });
                 throw new Error(`Failed to update profile: ${profileResponse.status} - ${errorText}`);
@@ -375,7 +381,13 @@ const TutorProfileSetup = () => {
                 });
 
                 if (!subjectsResponse.ok) {
-                    const errorText = await subjectsResponse.text();
+                    let errorText;
+                    try {
+                        const errorData = await subjectsResponse.json();
+                        errorText = errorData.message || subjectsResponse.statusText;
+                    } catch {
+                        errorText = subjectsResponse.statusText || `HTTP ${subjectsResponse.status}`;
+                    }
                     console.error('❌ Subjects save failed:', {
                         status: subjectsResponse.status,
                         statusText: subjectsResponse.statusText,
@@ -404,7 +416,13 @@ const TutorProfileSetup = () => {
             });
 
             if (!availabilityResponse.ok) {
-                const errorText = await availabilityResponse.text();
+                let errorText;
+                try {
+                    const errorData = await availabilityResponse.json();
+                    errorText = errorData.message || availabilityResponse.statusText;
+                } catch {
+                    errorText = availabilityResponse.statusText || `HTTP ${availabilityResponse.status}`;
+                }
                 console.error('❌ Availability save failed:', {
                     status: availabilityResponse.status,
                     statusText: availabilityResponse.statusText,
